@@ -11,6 +11,7 @@ type User struct {
 	Username  string    `json:"username"`
 	Password  string    `json:"password"`
 	CreatedAt time.Time `json:"createdAt"`
+	IsActive  bool      `json:"is_active"`
 }
 
 type Role struct {
@@ -29,6 +30,7 @@ type Hospital struct {
 	Address      string    `json:"address"`
 	ContactPhone string    `json:"contactPhone"`
 	CreatedAt    time.Time `json:"createdAt"`
+	IsActive     bool      `json:"is_active"`
 }
 
 type Room struct {
