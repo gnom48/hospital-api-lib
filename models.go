@@ -15,9 +15,10 @@ type User struct {
 }
 
 type Token struct {
-	Id     string `json:"id"`
-	UserId string `json:"user_id"`
-	Token  string `json:"token"`
+	Id        string `json:"id"`
+	UserId    string `json:"user_id"`
+	Token     string `json:"token"`
+	IsRegular bool   `json:"is_regular"`
 }
 
 type Role struct {
