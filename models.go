@@ -5,27 +5,33 @@ import (
 )
 
 type User struct {
-	Id        int       `json:"id"`
+	Id        string    `json:"id"`
 	LastName  string    `json:"lastName"`
 	FirstName string    `json:"firstName"`
 	Username  string    `json:"username"`
-	Password  string    `json:"password"`
+	Password  string    `json:"password,omitempty"`
 	CreatedAt time.Time `json:"createdAt"`
 	IsActive  bool      `json:"is_active"`
 }
 
+type Token struct {
+	Id     string `json:"id"`
+	UserId string `json:"user_id"`
+	Token  string `json:"token"`
+}
+
 type Role struct {
-	Id   int    `json:"id"`
+	Id   string `json:"id"`
 	Name string `json:"name"`
 }
 
 type UserRole struct {
-	UserId int `json:"userId"`
-	RoleId int `json:"roleId"`
+	UserId string `json:"userId"`
+	RoleId string `json:"roleId"`
 }
 
 type Hospital struct {
-	Id           int       `json:"id"`
+	Id           string    `json:"id"`
 	Name         string    `json:"name"`
 	Address      string    `json:"address"`
 	ContactPhone string    `json:"contactPhone"`
@@ -34,38 +40,38 @@ type Hospital struct {
 }
 
 type Room struct {
-	Id         int    `json:"id"`
-	HospitalId int    `json:"hospitalId"`
+	Id         string `json:"id"`
+	HospitalId string `json:"hospitalId"`
 	Name       string `json:"name"`
 }
 
 type Doctor struct {
-	Id             int    `json:"id"`
-	UserId         int    `json:"userId"`
+	Id             string `json:"id"`
+	UserId         string `json:"userId"`
 	Specialization string `json:"specialization"`
 }
 
 type Timetable struct {
-	Id         int       `json:"id"`
-	HospitalId int       `json:"hospitalId"`
-	DoctorId   int       `json:"doctorId"`
+	Id         string    `json:"id"`
+	HospitalId string    `json:"hospitalId"`
+	DoctorId   string    `json:"doctorId"`
 	TimeFrom   time.Time `json:"timeFrom"`
 	TimeTo     time.Time `json:"timeTo"`
 	Room       string    `json:"room"`
 }
 
 type Appointment struct {
-	Id              int       `json:"id"`
-	TimetableId     int       `json:"timetableId"`
-	UserId          int       `json:"userId"`
+	Id              string    `json:"id"`
+	TimetableId     string    `json:"timetableId"`
+	UserId          string    `json:"userId"`
 	AppointmentTime time.Time `json:"appointmentTime"`
 }
 
 type VisitHistory struct {
-	Id         int       `json:"id"`
-	PatientId  int       `json:"patientId"`
-	HospitalId int       `json:"hospitalId"`
-	DoctorId   int       `json:"doctorId"`
+	Id         string    `json:"id"`
+	PatientId  string    `json:"patientId"`
+	HospitalId string    `json:"hospitalId"`
+	DoctorId   string    `json:"doctorId"`
 	Room       string    `json:"room"`
 	VisitDate  time.Time `json:"visitDate"`
 	Data       string    `json:"data"`
