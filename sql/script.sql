@@ -87,5 +87,20 @@ CREATE TABLE visit_history (
     UNIQUE (patient_id, visit_date)
 );
 
+-- создание ролей
+INSERT INTO roles (id, name) VALUES ('0', 'Admin');
+INSERT INTO roles (id, name) VALUES ('1', 'Manager');
+INSERT INTO roles (id, name) VALUES ('2', 'Doctor');
+INSERT INTO roles (id, name) VALUES ('3', 'User');
+
 -- создание пользователя по умолчанию
-INSERT INTO users (id, last_name, first_name, username, password) VALUES ('ee7741a7-4301-36a8-fcfb-845fe752a35e', 'Ivanov', 'Egor', 'gnom48', 'pswd') RETURNING id;
+INSERT INTO users (id, last_name, first_name, username, password) VALUES ('ee7741a7-4301-36a8-fcfb-845fe752a35e', 'Ivanov', 'Egor', 'admin', 'admin') RETURNING id;
+INSERT INTO users (id, last_name, first_name, username, password) VALUES ('3f1c0b5e-972c-4c1c-819f-101fd5ffe30c', 'Ivanov', 'Egor', 'manager', 'manager') RETURNING id;
+INSERT INTO users (id, last_name, first_name, username, password) VALUES ('d8b9f484-c3c7-4e14-a5fd-c1e9e2f73f5f', 'Ivanov', 'Egor', 'doctor', 'doctor') RETURNING id;
+INSERT INTO users (id, last_name, first_name, username, password) VALUES ('469b2081-a77c-41d2-b45c-8c484350cd3c', 'Ivanov', 'Egor', 'user', 'user') RETURNING id;
+
+-- задание ролей
+INSERT INTO user_roles (user_id, role_id) VALUES ('ee7741a7-4301-36a8-fcfb-845fe752a35e', '0');
+INSERT INTO user_roles (user_id, role_id) VALUES ('3f1c0b5e-972c-4c1c-819f-101fd5ffe30c', '1');
+INSERT INTO user_roles (user_id, role_id) VALUES ('d8b9f484-c3c7-4e14-a5fd-c1e9e2f73f5f', '2');
+INSERT INTO user_roles (user_id, role_id) VALUES ('469b2081-a77c-41d2-b45c-8c484350cd3c', '3');
