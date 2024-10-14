@@ -42,7 +42,7 @@ type Hospital struct {
 
 type Room struct {
 	Id         string `json:"id"`
-	HospitalId string `json:"hospital_dd"`
+	HospitalId string `json:"hospital_id"`
 	Name       string `json:"name"`
 }
 
